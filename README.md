@@ -19,7 +19,7 @@ A Book Tracker app written in Javascript+CSS+HTML. Log which books you have read
 - store data in local storage
 
 ### Project Plan Step by Step
-- [ ] Plan out a wireframe for how your page will work in general
+- [x] Plan out a rough wireframe for how your page will work in general: ![Layout Sketch](images/layoutSketch.png)
 - [ ] translate the wireframe into a design in figma (mobile first)
 - [ ] create a simple logo for the app
 - [ ] divide the program into small problems and write prototypes for each
