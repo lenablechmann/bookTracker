@@ -7,15 +7,15 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="14.13867mm"
-   height="14.13867mm"
-   viewBox="0 0 14.13867 14.13867"
+   width="14.138669mm"
+   height="14.138669mm"
+   viewBox="0 0 14.138669 14.138669"
    version="1.1"
-   id="svg5599"
+   id="svg257"
    inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)"
-   sodipodi:docname="delete.svg">
+   sodipodi:docname="completed_1.svg">
   <defs
-     id="defs5593" />
+     id="defs251" />
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -23,31 +23,31 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.35"
-     inkscape:cx="-96.138419"
-     inkscape:cy="109.57589"
+     inkscape:zoom="1.4"
+     inkscape:cx="203.59731"
+     inkscape:cy="137.63781"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
      showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1006"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
      fit-margin-top="0"
      fit-margin-left="0"
      fit-margin-right="0"
-     fit-margin-bottom="0"
-     inkscape:window-width="1343"
-     inkscape:window-height="883"
-     inkscape:window-x="0"
-     inkscape:window-y="123"
-     inkscape:window-maximized="0" />
+     fit-margin-bottom="0" />
   <metadata
-     id="metadata5596">
+     id="metadata254">
     <rdf:RDF>
       <cc:Work
          rdf:about="">
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -55,17 +55,17 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-131.26996,-119.17471)">
+     transform="translate(-46.966425,-89.023092)">
     <rect
-       style="fill:none;fill-rule:evenodd;stroke:#7b8b98;stroke-width:1.32291;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="rect1092"
-       width="12.81576"
-       height="12.81576"
-       x="131.93141"
-       y="119.83617" />
+       style="fill:none;fill-rule:evenodd;stroke:#7b8b98;stroke-width:1.32291;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;fill-opacity:1;stroke-opacity:1"
+       id="rect1088"
+       width="12.815759"
+       height="12.815759"
+       x="47.62788"
+       y="89.684547" />
     <path
-       id="path1096"
-       style="fill:none;stroke:#7b8b98;stroke-width:1.32292;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 132.8898,120.79456 10.89897,10.89898 m -10.89897,0 10.89897,-10.89898" />
+       style="fill:none;stroke:#7b8b98;stroke-width:1.5875;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1"
+       d="m 51.068296,96.456713 2.227273,3.842947 4.647635,-8.679186"
+       id="path1090" />
   </g>
 </svg>

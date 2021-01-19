@@ -11,11 +11,11 @@
    height="14.13867mm"
    viewBox="0 0 14.13867 14.13867"
    version="1.1"
-   id="svg5599"
+   id="svg4976"
    inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)"
-   sodipodi:docname="delete.svg">
+   sodipodi:docname="completed_0.svg">
   <defs
-     id="defs5593" />
+     id="defs4970" />
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -24,8 +24,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.35"
-     inkscape:cx="-96.138419"
-     inkscape:cy="109.57589"
+     inkscape:cx="-284.70983"
+     inkscape:cy="178.14731"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
@@ -40,7 +40,7 @@
      inkscape:window-y="123"
      inkscape:window-maximized="0" />
   <metadata
-     id="metadata5596">
+     id="metadata4973">
     <rdf:RDF>
       <cc:Work
          rdf:about="">
@@ -55,17 +55,13 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-131.26996,-119.17471)">
+     transform="translate(-181.16281,-101.03186)">
     <rect
        style="fill:none;fill-rule:evenodd;stroke:#7b8b98;stroke-width:1.32291;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="rect1092"
+       id="rect1086"
        width="12.81576"
        height="12.81576"
-       x="131.93141"
-       y="119.83617" />
-    <path
-       id="path1096"
-       style="fill:none;stroke:#7b8b98;stroke-width:1.32292;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 132.8898,120.79456 10.89897,10.89898 m -10.89897,0 10.89897,-10.89898" />
+       x="181.82426"
+       y="101.69331" />
   </g>
 </svg>
