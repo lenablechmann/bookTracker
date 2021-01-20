@@ -24,14 +24,37 @@
     <!-- flexbox will be used to create the overall column look of 
          the site, while grid will be used on individual card layouts-->
     <header>
-        <div>Logo</div>
+        <div>LogoPlaceholer</div>
         <div>Book Tracker</div>
     </header>
-    <div>
+    <div class="add-book">
         <button>ADD A BOOK</button>
     </div>
-    <section class="library">
-        <ul class="book-cards">
+    <ul class="book-cards">
+            <li class="card"> 
+                <input type="checkbox" class="read-status">
+                <div class="title">Book Title</div>
+                <div class="author">Book Author</div>
+                <button class="delete-btn">X</button>
+            </li>
+            <li class="card"> 
+                <input type="checkbox" class="read-status">
+                <div class="title">Super Long Title for testing purposes, to see if it will wrap and how in CSS</div>
+                <div class="author">A longer author name, the longest name has over 100 characters, so that might be the author</div>
+                <button class="delete-btn">X</button>
+            </li>
+            <li class="card"> 
+                <input type="checkbox" class="read-status">
+                <div class="title">Book Title</div>
+                <div class="author">Book Author</div>
+                <button class="delete-btn">X</button>
+            </li>
+            <li class="card"> 
+                <input type="checkbox" class="read-status">
+                <div class="title">Book Title</div>
+                <div class="author">Book Author</div>
+                <button class="delete-btn">X</button>
+            </li>
             <li class="card"> 
                 <input type="checkbox" class="read-status">
                 <div class="title">Book Title</div>
@@ -50,8 +73,13 @@
                 <div class="author">Book Author</div>
                 <button class="delete-btn">X</button>
             </li>
-        </ul>
-    </section>
+            <li class="card"> 
+                <input type="checkbox" class="read-status">
+                <div class="title">Book Title</div>
+                <div class="author">Book Author</div>
+                <button class="delete-btn">X</button>
+            </li>
+    </ul>
 </body>
 
 </html>
