@@ -1,26 +1,75 @@
-/* Avoids unintuitive box size changes as per 
-   https://css-tricks.com/box-sizing/ 
-*/
-
-
-/*  Contents of this file: 
+/* ----- Contents of this file: -----
  *  |basic layout| 
  *  |colors and typography| 
  *  |dynamic element classes| 
  *  |media queries| 
  */
 
+/* Avoids counter-intuitive box size changes as per 
+   https://css-tricks.com/box-sizing/ */
+
 html {
     box-sizing: border-box;
   }
-  *, *:before, *:after {
+
+*, *:before, *:after {
     box-sizing: inherit;
   }
 
 /*  |basic layout| */
+body {
+  display: flex;
+  flex-flow: column wrap;
+  align-content: center;
+  justify-content: space-between;
+}
+
+.card {
+  display: grid;
+  grid-template-areas: "status title del-btn" 
+                       "status author del-btn"
+  ;
+  grid-template-columns: 10% 80% 10%;
+  grid-template-rows: 50% 50%;
+}
+  .read-status {
+    grid-area: status;
+  } 
+  .title {
+    grid-area: title;
+  }
+  .author {
+    grid-area: author;
+  }
+  .delete-btn {
+    grid-area: del-btn;
+  }
 
 /*  |colors and typography| */
-/*    font-family: 'Barlow', sans-serif; */
+/* Using backgrounds for layout debugging */
+
+.library {
+  background-color: antiquewhite;
+}
+ul {
+  background-color: aliceblue;
+}
+.card {
+  font-family: 'Barlow', sans-serif;
+  background-color: rgb(160, 163, 157);
+}
+  .read-status {
+    background-color: rgb(116, 190, 46);
+  } 
+  .title {
+    background-color: rgb(255, 191, 95);
+  }
+  .author {
+    background-color: rgb(220, 255, 95);
+  }
+  .delete-btn {
+    background-color: rgb(255, 95, 95);
+  }
 
 /*  |dynamic element classes| */
 

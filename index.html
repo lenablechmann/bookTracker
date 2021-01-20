@@ -20,8 +20,38 @@
     <!--javascript-->
     <script src="scripts/script.js"></script>
 </head>
-
 <body>
+    <!-- flexbox will be used to create the overall column look of 
+         the site, while grid will be used on individual card layouts-->
+    <header>
+        <div>Logo</div>
+        <div>Book Tracker</div>
+    </header>
+    <div>
+        <button>ADD A BOOK</button>
+    </div>
+    <section class="library">
+        <ul class="book-cards">
+            <li class="card"> 
+                <input type="checkbox" class="read-status">
+                <div class="title">Book Title</div>
+                <div class="author">Book Author</div>
+                <button class="delete-btn">X</button>
+            </li>
+            <li class="card"> 
+                <input type="checkbox" class="read-status">
+                <div class="title">Book Title</div>
+                <div class="author">Book Author</div>
+                <button class="delete-btn">X</button>
+            </li>
+            <li class="card"> 
+                <input type="checkbox" class="read-status">
+                <div class="title">Book Title</div>
+                <div class="author">Book Author</div>
+                <button class="delete-btn">X</button>
+            </li>
+        </ul>
+    </section>
 </body>
 
 </html>
