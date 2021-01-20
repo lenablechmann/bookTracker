@@ -2,9 +2,26 @@
    https://css-tricks.com/box-sizing/ 
 */
 
+
+/*  Contents of this file: 
+ *  |basic layout| 
+ *  |colors and typography| 
+ *  |dynamic element classes| 
+ *  |media queries| 
+ */
+
 html {
     box-sizing: border-box;
   }
   *, *:before, *:after {
     box-sizing: inherit;
   }
+
+/*  |basic layout| */
+
+/*  |colors and typography| */
+/*    font-family: 'Barlow', sans-serif; */
+
+/*  |dynamic element classes| */
+
+/*  |media queries| */

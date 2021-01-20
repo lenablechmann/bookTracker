@@ -8,6 +8,7 @@
 // make sure each card has a data attribute that corresponds to the array index
 
 // eventlistener to the add new book button: 
+// popup form function
 // call addBookToLib() which in turn
 // makes use of the Book constructor
 // storeBookInLocal
