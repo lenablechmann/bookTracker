@@ -27,15 +27,11 @@ body {
     display: flex;
     align-self:center;
     margin: 1em 0 1em 0;
-    background-color: rgb(255, 205, 251);
-    border: solid 1px red;
   }
   
   .add-book {
-    margin: 0 0 1em 0;
+    margin: 0.5em 0 0.5em 0;
     align-self:center;
-    background-color: rgb(223, 255, 205);
-    border: solid 1px red;
   }
 
   .book-cards {
@@ -43,7 +39,6 @@ body {
     flex-flow: column wrap;
     align-self:stretch;
     margin: 0.5em 1em 0.5em 1em;
-    background-color: rgb(205, 239, 255);
   }
 
   .card {
@@ -54,33 +49,74 @@ body {
     grid-template-columns: 10% 80% 10%;
     grid-template-rows: 50% 50%;
     margin: 0.5em 0 0.5em 0;
-    border: solid 1px red;
   }
     .read-status {
       grid-area: status;
+      justify-self: center;
+      align-self: center;
       margin: 0 0.5em 0 0.5em;
-      border: solid 1px rgb(57, 124, 41);
     } 
     .title {
       grid-area: title;
+      justify-self: center;
+      align-self: center;
       margin: 0.5em 0.5em 0.2em 0.5em;
-      border: solid 1px rgb(66, 63, 221);
     }
     .author {
       grid-area: author;
+      justify-self: center;
+      align-self: center;
       margin: 0.2em 0.5em 0.5em 0.5em;
-      border: solid 1px rgb(66, 63, 221);
     }
     .delete-btn {
       grid-area: del-btn;
+      justify-self: center;
+      align-self: center;
+      justify-self: center;
+      align-self: center;
       margin: 0 0.5em 0 0.5em;
-      border: solid 1px rgb(66, 63, 221);
     }
 
 /*  |colors and typography| */
 body {
-  font-family: 'Barlow', sans-serif;
+  /*Adding fallback fonts*/
+  font-family: 'Barlow', Arial, Helvetica, sans-serif;
 }
+
+  header {
+  }
+  
+  .btn{
+    background-color: #E46F1A;
+    border: none;
+    border-radius: 5px;
+    color: #fffefa;
+    padding: 0.5em 1em 0.6em 1em;
+    font-size: 1.2rem;
+    font-weight: 650;
+  }
+
+  .card.unread {
+    border: solid 3px #1374be;
+    border-radius: 6px;
+    color: #1374be;
+  }
+  .card.read {
+    border: solid 3px #408515;
+    border-radius: 6px;
+    color: #408515;
+  }
+    .read-status {
+    } 
+    .title {
+      font-size: 1.2rem;
+      font-weight: 550;
+    }
+    .author {
+      font-weight: 450;
+    }
+    .delete-btn {
+    }
 
 /*  |dynamic element classes| */
 
