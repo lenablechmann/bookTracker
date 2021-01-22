@@ -1,12 +1,11 @@
 /* ----- Contents of this file: -----
  *  |basic layout| 
  *  |colors and typography| 
- *  |dynamic element classes| 
- *  |media queries| 
  */
 
 /* Avoids counter-intuitive box size changes as per 
    https://css-tricks.com/box-sizing/ */
+
 html {
     box-sizing: border-box;
 }
@@ -68,7 +67,7 @@ body {
       grid-area: status;
       justify-self: center;
       align-self: center;
-      margin: 0 0.5em 0 0.5em;
+      margin: 0 0.7em 0 0.7em;
     } 
     .title {
       grid-area: title;
@@ -86,9 +85,9 @@ body {
       grid-area: del-btn;
       justify-self: center;
       align-self: center;
-      justify-self: center;
-      align-self: center;
+      margin: 0 0.7em 0 0.7em;
     }
+
 
 /*  |colors and typography| */
 body {
@@ -110,6 +109,17 @@ body {
     font-size: 1rem;
     font-weight: 650;
   }
+  .btn:hover{
+    background-color: #ff7e23;
+  }
+  .btn:active{
+    box-shadow:4px 4px  #1374be; ;
+  }
+  .btn:focus{
+    outline: none;
+    border: solid 2px #1374be;
+    border-radius: 6px;
+  }
 
   .card.unread {
     border: solid 3px #1374be;
@@ -124,13 +134,24 @@ body {
     .read-status.unread{
       width: 2em;
       height: 2em;
-      opacity: 0.8;
+      opacity: 0.7;
     } 
     .read-status.read{
       width: 2em;
       height: 2em;
-      opacity: 0.8;
+      opacity: 0.7;
     } 
+    .read-status:hover {
+      opacity: 1;
+    }
+    .read-status:active {
+      opacity: 1;
+      box-shadow: 4px 4px rgb(129, 166, 168);
+    }
+    .read-status:focus {
+      box-shadow: 4px 4px rgb(129, 166, 168);
+      outline: none;
+    }
     .title {
       font-size: 1.23rem;
       font-weight: 600;
@@ -146,7 +167,14 @@ body {
       height: 2em;
       opacity: 0.8;
     }
-
-/*  |dynamic element classes| */
-
-/*  |media queries| */
+    .delete-btn:hover {
+      opacity: 1;
+    }
+    .delete-btn:active {
+      opacity: 1;
+      box-shadow: 4px 4px rgb(129, 166, 168);
+    }
+    .delete-btn:focus {
+      box-shadow: 4px 4px rgb(129, 166, 168);
+      outline: none;
+    }
