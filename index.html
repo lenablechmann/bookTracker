@@ -34,8 +34,13 @@
     <!-- Modal Pop Up for the book info entry-->
     <div id="book-form-modal" class="modal">
         <div class="modal-content">
-            <input type="image" src="images/delete.svg" name="close modal" class="delete-btn" id="close-modal" />
-            <p>Some text in the Modal..</p>
+            <input type="image" src="images/delete.svg" name="close modal" class="delete-btn" id="modal-close" />
+            <p class="form-intro">Enter the book info:</p>
+            <form class="book-form">
+                <input type="text" placeholder="Book Title" id="title">
+                <input type="text" placeholder="Author" id="author">
+                <button class="btn" id="submit-book-btn">ADD THIS BOOK</button>
+            </form>
         </div>
     </div>
 

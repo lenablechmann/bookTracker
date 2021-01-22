@@ -3,14 +3,14 @@ document.addEventListener("DOMContentLoaded", function () {
     /* MODAL POP UP on add book */
     const modal = document.querySelector(".modal");
     const bookBtn = document.getElementById("add-book-btn");
-    const closeModal = document.getElementById("close-modal");
+    const closeModal = document.getElementById("modal-close");
 
     // When the user clicks the button, open the modal 
     bookBtn.onclick = function() {
-    modal.style.display = "block";
+        modal.style.display = "block";
     }
     closeModal.onclick = function() {
-    modal.style.display = "none";
+        modal.style.display = "none";
     }
     // Closes modal when user clicks outside
     window.onclick = function(event) {
