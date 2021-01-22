@@ -15,11 +15,12 @@
 
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Barlow&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Barlow&display=swap" rel="stylesheet">
 
     <!--javascript-->
     <script src="scripts/script.js"></script>
 </head>
+
 <body>
     <!-- flexbox will be used to create the overall column look of 
          the site, while grid will be used on individual card layouts-->
@@ -28,57 +29,67 @@
         <div id="app-name">Book Tracker</div>
     </header>
     <div class="add-book">
-        <button class="btn">ADD A BOOK</button>
+        <button class="btn" id="add-book-btn">ADD A BOOK</button>
     </div>
+    <!-- Modal Pop Up for the book info entry-->
+    <div id="book-form-modal" class="modal">
+        <div class="modal-content">
+            <input type="image" src="images/delete.svg" name="close modal" class="delete-btn" id="close-modal" />
+            <p>Some text in the Modal..</p>
+        </div>
+    </div>
+
     <ul class="book-cards">
-            <li class="card unread"> 
-                <input type="image" src="images/completed_0.svg" name="book reading status" class="read-status unread"/>
-                <div class="title">Book Title</div>
-                <div class="author">Book Author</div>
-                <input type="image" src="images/delete.svg" name="delete book card" class="delete-btn"/>
-            </li>
-            <li class="card unread"> 
-                <input type="image" src="images/completed_0.svg" name="book reading status" class="read-status unread"/>
-                <div class="title">Super Long Title for testing purposes, to see if it will wrap and how in CSS. Testing what happens if it goes over three or four lines.</div>
-                <div class="author">A longer author name, the longest name has over 100 characters, so that might be the author</div>
-                <input type="image" src="images/delete.svg" name="delete book card" class="delete-btn"/>
-            </li>
-            <li class="card unread"> 
-                <input type="image" src="images/completed_0.svg" name="book reading status" class="read-status unread"/>
-                <div class="title">Book Title</div>
-                <div class="author">Book Author</div>
-                <input type="image" src="images/delete.svg" name="delete book card" class="delete-btn"/>
-            </li>
-            <li class="card read"> 
-                <input type="image" src="images/completed_1.svg" name="book reading status" class="read-status read"/>
-                <div class="title">Book Title</div>
-                <div class="author">Book Author</div>
-                <input type="image" src="images/delete.svg" name="delete book card" class="delete-btn"/>
-            </li>
-            <li class="card read"> 
-                <input type="image" src="images/completed_1.svg" name="book reading status" class="read-status read"/>
-                <div class="title">Book Title</div>
-                <div class="author">Book Author</div>
-                <input type="image" src="images/delete.svg" name="delete book card" class="delete-btn"/>
-            </li>
-            <li class="card unread"> 
-                <input type="image" src="images/completed_0.svg" name="book reading status" class="read-status unread"/>
-                <div class="title">Book Title</div>
-                <div class="author">Book Author</div>
-                <input type="image" src="images/delete.svg" name="delete book card" class="delete-btn"/>
-            </li>
-            <li class="card unread"> 
-                <input type="image" src="images/completed_0.svg" name="book reading status" class="read-status unread"/>
-                <div class="title">Book Title</div>
-                <div class="author">Book Author</div>
-                <input type="image" src="images/delete.svg" name="delete book card" class="delete-btn"/>
-            </li>
-            <li class="card unread"> 
-                <input type="image" src="images/completed_0.svg" name="book reading status" class="read-status unread"/>
-                <div class="title">Book Title</div>
-                <div class="author">Book Author</div>
-                <input type="image" src="images/delete.svg" name="delete book card" class="delete-btn"/>
-            </li>
+        <li class="card unread">
+            <input type="image" src="images/completed_0.svg" name="book reading status" class="read-status unread" />
+            <div class="title">Book Title</div>
+            <div class="author">Book Author</div>
+            <input type="image" src="images/delete.svg" name="delete book card" class="delete-btn" />
+        </li>
+        <li class="card unread">
+            <input type="image" src="images/completed_0.svg" name="book reading status" class="read-status unread" />
+            <div class="title">Super Long Title for testing purposes, to see if it will wrap and how in CSS. Testing
+                what happens if it goes over three or four lines.</div>
+            <div class="author">A longer author name, the longest name has over 100 characters, so that might be the
+                author</div>
+            <input type="image" src="images/delete.svg" name="delete book card" class="delete-btn" />
+        </li>
+        <li class="card unread">
+            <input type="image" src="images/completed_0.svg" name="book reading status" class="read-status unread" />
+            <div class="title">Book Title</div>
+            <div class="author">Book Author</div>
+            <input type="image" src="images/delete.svg" name="delete book card" class="delete-btn" />
+        </li>
+        <li class="card read">
+            <input type="image" src="images/completed_1.svg" name="book reading status" class="read-status read" />
+            <div class="title">Book Title</div>
+            <div class="author">Book Author</div>
+            <input type="image" src="images/delete.svg" name="delete book card" class="delete-btn" />
+        </li>
+        <li class="card read">
+            <input type="image" src="images/completed_1.svg" name="book reading status" class="read-status read" />
+            <div class="title">Book Title</div>
+            <div class="author">Book Author</div>
+            <input type="image" src="images/delete.svg" name="delete book card" class="delete-btn" />
+        </li>
+        <li class="card unread">
+            <input type="image" src="images/completed_0.svg" name="book reading status" class="read-status unread" />
+            <div class="title">Book Title</div>
+            <div class="author">Book Author</div>
+            <input type="image" src="images/delete.svg" name="delete book card" class="delete-btn" />
+        </li>
+        <li class="card unread">
+            <input type="image" src="images/completed_0.svg" name="book reading status" class="read-status unread" />
+            <div class="title">Book Title</div>
+            <div class="author">Book Author</div>
+            <input type="image" src="images/delete.svg" name="delete book card" class="delete-btn" />
+        </li>
+        <li class="card unread">
+            <input type="image" src="images/completed_0.svg" name="book reading status" class="read-status unread" />
+            <div class="title">Book Title</div>
+            <div class="author">Book Author</div>
+            <input type="image" src="images/delete.svg" name="delete book card" class="delete-btn" />
+        </li>
     </ul>
 </body>
 
