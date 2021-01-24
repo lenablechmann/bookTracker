@@ -1,7 +1,6 @@
 /* ----- Contents of this file: -----
  *  |basic layout| 
  *  |colors and typography| 
- *  |modal pop-up style|
  */
 
 /* Avoids counter-intuitive box size changes as per 
@@ -90,6 +89,65 @@ body {
       margin: 0 0.7em 0 0.7em;
     }
 
+ /* modal pop-up layout */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  overflow: auto; 
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  position: relative;
+  display: grid;
+  top: 25%;
+  grid-template-areas: "form-intro modal-close" 
+                       "book-form book-form"
+  ;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 5fr;
+  width: 80%;
+  height: auto;
+  /* Centers the div */
+  margin: auto;
+  padding: 1.2em 1.7em 1em 1.7em;
+}
+
+#modal-close {
+  grid-area: modal-close;
+  justify-self: end;
+  align-self: baseline;
+}
+
+.form-intro {
+  grid-area: form-intro;
+  justify-self: start;
+  align-self: baseline;
+}
+
+.book-form {
+  grid-area: book-form;
+  display: flex;
+  flex-flow: column;
+  margin: 0.9em 2em 1em 2em;
+  overflow: inherit;
+  height: auto;
+}
+  #title-input {
+    margin: 0.1em 0 1em 0;
+    padding: 0.3em 0 0.4em 0.8em;
+  }
+  #author-input {
+    margin: 0 0 1em 0;
+    padding: 0.3em 0 0.4em 0.8em;
+  }
+  #submit-book-btn {
+    align-self: center;
+  }
 
 /*  |colors and typography| */
 body {
@@ -181,51 +239,27 @@ body {
       outline: none;
     }
 
-
- /*  |modal pop-up style| */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  height: 100%;
-  width: 100%;
-  overflow: auto; 
-  background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0,0.4);
-}
-
+ /* modal pop-up colors and typography */
 .modal-content {
-  position: relative;
-  display: grid;
-  top: 25%;
-  grid-template-areas: "form-intro modal-close" 
-                       "book-form book-form"
-  ;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 30% 70%;
-  border: 1px solid rgb(255, 43, 43);
+  border: 1px solid gray;
+  border-radius: 5px;
   background-color: #fefefe;
-  width: 80%;
-  height: auto;
-  /* Centers the div */
-  margin: auto;
+  color: #1374be;
+  font-size: 1.3rem;
+  font-weight: 450;
 }
 
-#modal-close {
-  grid-area: modal-close;
-  justify-self: end;
-  border: solid 2px red;
-}
-
-.form-intro {
-  grid-area: form-intro;
-  border: solid 2px red;
-}
-
-.book-form {
-  grid-area: book-form;
-  display: flex;
-  flex-flow: column wrap;
-  margin: 1em 2em 1em 2em;
-  border: solid 2px red;
-}
+  #title-input {
+    font-size: 1.1rem;
+    border: solid 3px #1374be;
+    border-radius: 6px;
+  }
+  #author-input {
+    font-size: 1.1rem;
+    border: solid 3px #1374be;
+    border-radius: 6px;
+  }
+  input:focus {
+    box-shadow: 2px 2px rgb(149, 176, 223);
+    outline: none;
+  }
