@@ -104,7 +104,6 @@ body {
 .modal-content {
   position: relative;
   display: grid;
-  top: 25%;
   grid-template-areas: "form-intro modal-close" 
                        "book-form book-form"
   ;
