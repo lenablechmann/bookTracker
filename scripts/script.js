@@ -1,7 +1,7 @@
 // adding this check, so that the script tag can stay at the start of HTML
 document.addEventListener("DOMContentLoaded", function () {
 
-/*----------------- MODAL POP UP on add book ----------------------*/
+/*------------- MODAL POP UP on add book --------------- */
 
     const modal = document.querySelector(".modal");
     const bookBtn = document.getElementById("add-book-btn");
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    /* Adding new book to the object array */
+    /* --------- Adding new book to the object array --------- */
     addBookBtn.onclick = addBookToObj;
     
     // eventlistener to the add new book button: 
@@ -65,9 +65,7 @@ function Book(title, author) {
 
 // adding a function to the prototype; as to not spam the constructor
 Book.prototype.changeReadStatus = function () {
-    // so that the user can spam read status button back n forth
     this.status === false ? this.status = true : this.status = false;
-
     return this.status;
 }
 
@@ -83,16 +81,23 @@ function addBookToObj(ev) {
     const title = document.getElementById("title-input").value;
     const author = document.getElementById("author-input").value;
     const modal = document.querySelector(".modal");
-
-    // ----TODO should call a check function for length
-
-    // using the constructor to create an object
-    curBook = new Book(title, author);
-    console.log(curBook);
-
-    // closing the modal after we got everything but not reloading page
-    modal.style.display = "none";
     
+    // checking if string is shorter than defined max len and longer than 0
+    // form will just stay put if user isn't cooperating (currently)
+    if (checkLength(title) && checkLength(author)) {
+        // using the constructor to create an object
+        curBook = new Book(title, author);
+        console.log(curBook);
+
+        // closing the modal after we got everything but not reloading page
+        modal.style.display = "none";
+        // resetting form without reset()
+        document.getElementById("title-input").value = "";
+        document.getElementById("author-input").value = "";
+    }
+
+
+
     // ----TODO add a function that gets array of objects out of local storage or makes one
     // booksCollection.push(userBookObj);
     // ----TODO add a function that saves in local storage
@@ -101,4 +106,15 @@ function addBookToObj(ev) {
     // can also save it in the local storage now
     // localStorage.setItem('bookList', JSON.stringify(booksCollection));
     // console.table(booksCollection);
+}
+
+function checkLength(string) {
+    // limiting user input length, so that the cards are nice n short
+    const MAX_LEN = 140;
+    if (string.length > 0 && string.length <= MAX_LEN) {
+        return true;
+    }
+    else {
+        return false;
+    }
 }
