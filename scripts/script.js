@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const modal = document.querySelector(".modal");
     const bookBtn = document.getElementById("add-book-btn");
     const closeModal = document.getElementById("modal-close");
+    const addBookBtn = document.getElementById("submit-book-btn");
 
     bookBtn.onclick = function() {
         // make modal visible upon click
@@ -23,7 +24,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     /* Adding new book to the object array */
-    const addBookBtn = document.getElementById("submit-book-btn");
     addBookBtn.onclick = addBookToObj;
     
     // eventlistener to the add new book button: 
@@ -63,15 +63,16 @@ function Book(title, author) {
   this.status = false;
 }
 
-// adding a function to the prototype
+// adding a function to the prototype; as to not spam the constructor
 Book.prototype.changeReadStatus = function () {
-    // so that the user can spam read status button
+    // so that the user can spam read status button back n forth
     this.status === false ? this.status = true : this.status = false;
+
     return this.status;
 }
 
 function addBookToObj(ev) {
-    let booksCollection = [];
+    let curBook = {};
     // we need to stop the form from submitting or it'll try to reload page 
     // (any button inside a form does it)
     // ev is in this case the submit event that we pass to this
@@ -81,20 +82,23 @@ function addBookToObj(ev) {
     // (not error checking em, cause prototype)
     const title = document.getElementById("title-input").value;
     const author = document.getElementById("author-input").value;
+    const modal = document.querySelector(".modal");
 
-    // TODO should call a check function for length
+    // ----TODO should call a check function for length
 
     // using the constructor to create an object
-    userBookObj = new Book(title, author);
+    curBook = new Book(title, author);
+    console.log(curBook);
 
-    booksCollection.push(userBookObj);
-    // console.log(booksCollection);
+    // closing the modal after we got everything but not reloading page
+    modal.style.display = "none";
     
-    // TODO add a function that saves in local storage
-    // TODO add a function that translates string into array of objects
-    // TODO add a function that gets array of objects out of local storage
+    // ----TODO add a function that gets array of objects out of local storage or makes one
+    // booksCollection.push(userBookObj);
+    // ----TODO add a function that saves in local storage
+    // ----TODO add a function that translates string into array of objects
 
     // can also save it in the local storage now
     // localStorage.setItem('bookList', JSON.stringify(booksCollection));
-    console.table(booksCollection);
+    // console.table(booksCollection);
 }
