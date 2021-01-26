@@ -22,9 +22,9 @@ A Book Tracker app written in Javascript+CSS+HTML. Log which books you have read
 - [x] Plan out a rough wireframe for how your page will work in general: ![Layout Sketch](images/layoutSketch.png)
 - [x] translate the wireframe into a design in figma (mobile first) ![Layout in Figma with placeholder images](images/figma_placeholder.png)
 - [x] create a simple logo for the app (learn Inkscape) ![a somewhat custom logo made in Inkscape](images/BookIcon.svg)
-- [ ] divide the program into smaller segments and write prototypes for every segment you deem necessary
-- [ ] write out which id's and classes you'll need
-- [ ] create all the necessary HTML + CSS
+- [x] divide the program into smaller segments and write prototypes for every segment you deem necessary
+- [x] write out which id's and classes you'll need
+- [x] create all the necessary HTML + CSS
 - [ ] add JavaScript
 
 ### Unexpected Problems and Learning Experiences:

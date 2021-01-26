@@ -30,24 +30,8 @@ document.addEventListener("DOMContentLoaded", function () {
     /* --------- Adding new book to the object array --------- */
     addBookBtn.onclick = addBookToObj;
     
-    // eventlistener to the add new book button: 
-    // popup form function which should have 2 input fields
-
-    // and an ADD BOOK button
-    // call addBookToLib() which in turn
-    // makes use of the Book constructor storeBookInLocal {}
-
-    // get local Library string
-
-    // if it doesn't exist, create one with an example book, so that the 
-    // page isn't empty for new users
-    // probably go with The Hitchhiker's Guide to the Galaxy. by Douglas Adams
-
-    // if it does exist: parse it into an array of objects
-
     // Loop through the array and append cards to the html
     // make sure each card has a data attribute that corresponds to the array index
-
 
     // eventlistener onclick reading status,
     // changes boolean status in array read:true to false and vice versa
@@ -163,3 +147,6 @@ function addToLocalBookTrackerList(bookObject) {
     localStorage.setItem("BookTrackerList", JSON.stringify(updatedBookTrackerList));
     return updatedBookTrackerList;
 }
+
+// TODO a function that goes through an array of objects (from local storage)
+// and puts it into the DOM
