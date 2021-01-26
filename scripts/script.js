@@ -1,8 +1,5 @@
 // adding this check, so that the script tag can stay at the start of HTML
 document.addEventListener("DOMContentLoaded", function () {
-    const locallyStored = getStoredObjects();
-    console.table(locallyStored);
-
     /*------------- MODAL POP UP --------------- */
     const modal = document.querySelector(".modal");
     const bookBtn = document.getElementById("add-book-btn");
@@ -92,7 +89,8 @@ function addBookToObj(ev) {
     if (checkLength(title) && checkLength(author)) {
         // using the constructor to create an object
         curBook = new Book(title, author);
-        console.log(curBook);
+        let bookList = addToLocalBookTrackerList(curBook);
+        console.table(bookList);
         // push the new obj into the array of objects you get from the local storage
         // closing the modal after we got everything without reloading page
         modal.style.display = "none";
@@ -102,15 +100,6 @@ function addBookToObj(ev) {
         modalIntro.textContent = "*Please enter the book title and author,140 char max."
         modalIntro.style.color = "#8b0a19"
     }
-
-    // ----TODO add a function that gets array of objects out of local storage or makes one
-    // booksCollection.push(userBookObj);
-    // ----TODO add a function that saves in local storage
-    // ----TODO add a function that translates string into array of objects
-
-    // can also save it in the local storage now
-    // localStorage.setItem('bookList', JSON.stringify(booksCollection));
-    // console.table(booksCollection);
 }
 
 function checkLength(string) {
@@ -127,21 +116,50 @@ function checkLength(string) {
 /* ----local storage functions ---- */
 
 // ----gets array of objects out of local storage or makes one, returns the array of objects
-function getStoredObjects() {
+function getLocalBookTrackerList() {
     // went with a popular and neutral choice
     const placeholderBookTitle = "The Hitchhiker's Guide to the Galaxy";
     const placeholderBookAuthor = "Douglas Adams";
 
-    if (!localStorage.getItem("BookTrackerList")) {
-        let placeholderBook = new Book(placeholderBookTitle, placeholderBookAuthor);
-        localStorage.setItem("BookTrackerList", JSON.stringify(placeholderBook));
+    // empty array, so that we can push objects onto it
+    let bookTrackerList = [];
 
-        return JSON.parse(localStorage.getItem("BookTrackerList"));
+    if (!localStorage.getItem("BookTrackerList")) {
+        // create local string if it doesn't exist yet, use a placeholder so that 
+        // the user who hasn't used the app ever, will know whats it about
+        const placeholderBook = new Book(placeholderBookTitle, placeholderBookAuthor);
+
+        localStorage.setItem("BookTrackerList", JSON.stringify(placeholderBook));
+        bookTrackerList.push(placeholderBook);
+        return bookTrackerList;
     }
     else {
-        return JSON.parse(localStorage.getItem("BookTrackerList"));
+        // local storage could have a single object or an array of objects,
+        // if it's already an array, we can return it as is, otherwise push the
+        // obj onto an array (bookTrackerList)
+        const bookTrackerListUnknownType = JSON.parse(localStorage.getItem("BookTrackerList"));
+
+        if (Array.isArray(bookTrackerListUnknownType))
+        {
+            // it's an array, so we can return it as is
+            return bookTrackerListUnknownType;
+        }
+        else {
+            // it's an object, needs to be pushed into an array for latter operations
+            bookTrackerList.push(localBooks);
+            return bookTrackerList;
+        }
     }
 
+
 }
-// ----saves array of objects in local storage (parameter is the book obj)
-// ----parses string into array of objects
+
+function addToLocalBookTrackerList(bookObject) {
+    // adds new book obj to the already existing local storage array
+    let existingBookTrackerList = getLocalBookTrackerList();
+    existingBookTrackerList.push(bookObject);
+    const updatedBookTrackerList = existingBookTrackerList;
+
+    localStorage.setItem("BookTrackerList", JSON.stringify(updatedBookTrackerList));
+    return updatedBookTrackerList;
+}
