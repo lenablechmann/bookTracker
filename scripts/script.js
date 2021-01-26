@@ -7,10 +7,16 @@ document.addEventListener("DOMContentLoaded", function () {
     const bookBtn = document.getElementById("add-book-btn");
     const closeModal = document.getElementById("modal-close");
     const addBookBtn = document.getElementById("submit-book-btn");
+    const modalIntro = document.querySelector(".form-intro");
 
     bookBtn.onclick = function() {
         // make modal visible upon click
         modal.style.display = "flex";
+        // resetting modal to the default
+        document.getElementById("title-input").value = "";
+        document.getElementById("author-input").value = "";
+        modalIntro.textContent = "The book you'd like to add:";
+        modalIntro.style.color = "#1374be";
     }
     closeModal.onclick = function() {
         // hide modal
@@ -77,26 +83,26 @@ function addBookToObj(ev) {
      ev.preventDefault();
     
     // getting user values from the text fields 
-    // (not error checking em, cause prototype)
     const title = document.getElementById("title-input").value;
     const author = document.getElementById("author-input").value;
     const modal = document.querySelector(".modal");
+    const modalIntro = document.querySelector(".form-intro");
     
-    // checking if string is shorter than defined max len and longer than 0
-    // form will just stay put if user isn't cooperating (currently)
+    // form will just stay put if user isn't cooperating on input length (currently)
     if (checkLength(title) && checkLength(author)) {
         // using the constructor to create an object
         curBook = new Book(title, author);
         console.log(curBook);
 
-        // closing the modal after we got everything but not reloading page
+        // closing the modal after we got everything without reloading page
         modal.style.display = "none";
         // resetting form without reset()
-        document.getElementById("title-input").value = "";
-        document.getElementById("author-input").value = "";
     }
-
-
+    // make sure the user knows he is entering too much or too little text
+    else {
+        modalIntro.textContent = "*Please enter the book title and author,140 char max."
+        modalIntro.style.color = "#8b0a19"
+    }
 
     // ----TODO add a function that gets array of objects out of local storage or makes one
     // booksCollection.push(userBookObj);
