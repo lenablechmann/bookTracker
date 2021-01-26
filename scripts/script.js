@@ -1,8 +1,9 @@
 // adding this check, so that the script tag can stay at the start of HTML
 document.addEventListener("DOMContentLoaded", function () {
+    const locallyStored = getStoredObjects();
+    console.table(locallyStored);
 
-/*------------- MODAL POP UP on add book --------------- */
-
+    /*------------- MODAL POP UP --------------- */
     const modal = document.querySelector(".modal");
     const bookBtn = document.getElementById("add-book-btn");
     const closeModal = document.getElementById("modal-close");
@@ -77,29 +78,27 @@ Book.prototype.changeReadStatus = function () {
 
 function addBookToObj(ev) {
     let curBook = {};
-    // we need to stop the form from submitting or it'll try to reload page 
-    // (any button inside a form does it)
-    // ev is in this case the submit event that we pass to this
+    // stopping form from submitting or it'll try to reload page 
+    // ev is in this case the onclick event that we pass to this
      ev.preventDefault();
     
-    // getting user values from the text fields 
+    // getting user input values from the text fields 
     const title = document.getElementById("title-input").value;
     const author = document.getElementById("author-input").value;
     const modal = document.querySelector(".modal");
     const modalIntro = document.querySelector(".form-intro");
     
-    // form will just stay put if user isn't cooperating on input length (currently)
+    // form will just stay put if user isn't cooperating on input length 
     if (checkLength(title) && checkLength(author)) {
         // using the constructor to create an object
         curBook = new Book(title, author);
         console.log(curBook);
-
+        // push the new obj into the array of objects you get from the local storage
         // closing the modal after we got everything without reloading page
         modal.style.display = "none";
-        // resetting form without reset()
     }
-    // make sure the user knows he is entering too much or too little text
     else {
+        // make sure the user knows he is entering too much or too little text
         modalIntro.textContent = "*Please enter the book title and author,140 char max."
         modalIntro.style.color = "#8b0a19"
     }
@@ -124,3 +123,25 @@ function checkLength(string) {
         return false;
     }
 }
+
+/* ----local storage functions ---- */
+
+// ----gets array of objects out of local storage or makes one, returns the array of objects
+function getStoredObjects() {
+    // went with a popular and neutral choice
+    const placeholderBookTitle = "The Hitchhiker's Guide to the Galaxy";
+    const placeholderBookAuthor = "Douglas Adams";
+
+    if (!localStorage.getItem("BookTrackerList")) {
+        let placeholderBook = new Book(placeholderBookTitle, placeholderBookAuthor);
+        localStorage.setItem("BookTrackerList", JSON.stringify(placeholderBook));
+
+        return JSON.parse(localStorage.getItem("BookTrackerList"));
+    }
+    else {
+        return JSON.parse(localStorage.getItem("BookTrackerList"));
+    }
+
+}
+// ----saves array of objects in local storage (parameter is the book obj)
+// ----parses string into array of objects
