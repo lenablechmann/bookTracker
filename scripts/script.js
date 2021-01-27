@@ -1,5 +1,9 @@
 // adding this check, so that the script tag can stay at the start of HTML
 document.addEventListener("DOMContentLoaded", function () {
+
+  // Loop through the array and append cards to the html
+  // make sure each card has a data attribute that corresponds to the array index
+
   // display all books currently in local storage (tracer bullet)
   displayBookCards();
 
@@ -33,8 +37,6 @@ document.addEventListener("DOMContentLoaded", function () {
   /* --------- Adding new book to the object array --------- */
   addBookBtn.onclick = addBookToObj;
 
-  // Loop through the array and append cards to the html
-  // make sure each card has a data attribute that corresponds to the array index
 
   // eventlistener onclick reading status,
   // changes boolean status in array read:true to false and vice versa
@@ -153,12 +155,15 @@ function addToLocalBookTrackerList(bookObject) {
   return updatedBookTrackerList;
 }
 
-// TODO a function that goes through an array of objects (from local storage)
-// and puts it into the DOM
 function displayBookCards(){
+  const bookCardsUL = document.querySelector(".book-cards");
   const bookTrackerList = getLocalBookTrackerList();
-  
+  // looping through every object, create a card for each
+  // append onto .book-cards as <li> with the according classes and textContent 
   bookTrackerList.forEach(book => {
     console.log(book.title);
+    const element = document.createElement("p");
+    element.textContent = book.title;
+    bookCardsUL.appendChild(element);
   });
 }
