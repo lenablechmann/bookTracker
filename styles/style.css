@@ -52,6 +52,7 @@ body {
     display: flex;
     flex-flow: column wrap;
     align-self:stretch;
+    width: 100%;
     margin: 0.5em 1em 0.5em 1em;
   }
 
@@ -62,13 +63,13 @@ body {
     ;
     grid-template-columns: 10% 80% 10%;
     grid-template-rows: 50% 50%;
-    margin: 0.5em 0 0.5em 0;
+    margin: 0.5em 2em 0.5em 2em;
   }
     .read-status {
       grid-area: status;
-      justify-self: center;
+      justify-self: flex-start;
       align-self: center;
-      margin: 0 0.7em 0 0.7em;
+      margin: 0 1.1em 0 1.1em;
     } 
     .title {
       grid-area: title;
@@ -84,9 +85,9 @@ body {
     }
     .delete-btn {
       grid-area: del-btn;
-      justify-self: center;
+      justify-self: flex-end;
       align-self: center;
-      margin: 0 0.7em 0 0.7em;
+      margin: 0 1.1em 0 1.1em;
     }
 
  /* modal pop-up layout */
