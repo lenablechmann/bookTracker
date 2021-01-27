@@ -1,5 +1,8 @@
 // adding this check, so that the script tag can stay at the start of HTML
 document.addEventListener("DOMContentLoaded", function () {
+  // display all books currently in local storage (tracer bullet)
+  displayBookCards();
+
   /*------------- MODAL POP UP --------------- */
   const modal = document.querySelector(".modal");
   const bookBtn = document.getElementById("add-book-btn");
@@ -131,7 +134,7 @@ function getLocalBookTrackerList() {
       return bookTrackerListUnknownType;
     } else {
       // it's an object, needs to be pushed into an array for latter operations
-      bookTrackerList.push(localBooks);
+      bookTrackerList.push(bookTrackerListUnknownType);
       return bookTrackerList;
     }
   }
@@ -152,3 +155,10 @@ function addToLocalBookTrackerList(bookObject) {
 
 // TODO a function that goes through an array of objects (from local storage)
 // and puts it into the DOM
+function displayBookCards(){
+  const bookTrackerList = getLocalBookTrackerList();
+  
+  bookTrackerList.forEach(book => {
+    console.log(book.title);
+  });
+}
