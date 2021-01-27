@@ -156,14 +156,61 @@ function addToLocalBookTrackerList(bookObject) {
 }
 
 function displayBookCards(){
-  const bookCardsUL = document.querySelector(".book-cards");
+  // add array index class/id to cards so that you can change read status + delete books
+  let bookIndex = 0;
+
+  // container of all book cards
+  const bookCardsContainer = document.querySelector(".book-cards");
   const bookTrackerList = getLocalBookTrackerList();
+
   // looping through every object, create a card for each
-  // append onto .book-cards as <li> with the according classes and textContent 
   bookTrackerList.forEach(book => {
-    console.log(book.title);
-    const element = document.createElement("p");
-    element.textContent = book.title;
-    bookCardsUL.appendChild(element);
+    // creating all the necessary elements for the card (as shown in indexCopy.html in /prototypes)
+    const cardWrapper = document.createElement("li");
+    const readStatusBtn = document.createElement("input");
+    const deleteCardBtn = document.createElement("input");
+    const bookTitle = document.createElement("div");
+    const bookAuthor = document.createElement("div");
+
+    // add array index class/id to cards so that you can change read status + delete books
+    cardWrapper.id = bookIndex;
+
+    // styling card elements that don't depend on reading status
+    cardWrapper.classList.add("card");
+
+    readStatusBtn.setAttribute("type", "image");
+    readStatusBtn.setAttribute("src", "images/completed_0.svg");
+    readStatusBtn.setAttribute("name", "book reading status");
+    readStatusBtn.classList.add("read-status")
+
+    deleteCardBtn.setAttribute("type", "image");
+    deleteCardBtn.setAttribute("src", "images/delete.svg");
+    deleteCardBtn.setAttribute("name", "delete book card");
+    deleteCardBtn.classList.add("delete-btn");
+
+    bookTitle.classList.add("title");
+    bookTitle.textContent = book.title;
+
+    bookAuthor.classList.add("author");
+    bookAuthor.textContent = book.author;
+
+    // styling card elements that depend on reading status
+    if (book.status === false){
+      cardWrapper.classList.add("unread");
+      readStatusBtn.classList.add("unread")
+    }
+    else {
+      cardWrapper.classList.add("read");
+      readStatusBtn.classList.add("read")
+    }
+
+    // appending all the styled elements onto the parent nodes
+    cardWrapper.appendChild(readStatusBtn);
+    cardWrapper.appendChild(bookTitle);
+    cardWrapper.appendChild(bookAuthor);
+    cardWrapper.appendChild(deleteCardBtn);
+    bookCardsContainer.append(cardWrapper);
+
+    bookIndex++;
   });
 }
