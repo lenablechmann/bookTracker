@@ -104,6 +104,7 @@ function addBookToObj(ev) {
   }
 
   displayBookCards();
+  window.location.reload();
 }
 
 function checkLength(string) {
@@ -242,10 +243,12 @@ function deleteBook(index) {
   let bookTrackerList = getLocalBookTrackerList();
 
   if (index >= 0) {
+    clearBooksDOM();
     // remove the object from the array
     bookTrackerList.splice(index, 1);
     // reverse array, save to local storage
     localStorage.setItem( "BookTrackerList", JSON.stringify(bookTrackerList.reverse()));
     displayBookCards();
+    window.location.reload();
   }
 }
