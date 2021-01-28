@@ -1,5 +1,9 @@
 ## Introduction
-A Book Tracker app written in Javascript+CSS+HTML. Log which books you have read and books you plan to read in the future.
+A Book Tracker app written in Javascript+CSS+HTML. Log which books you have read and books you plan on reading in the future, saving your book list in the local storage of the browser.
+
+To view the live version of the page, [click on this link](https://lenablechmann.github.io/bookTracker/ "Book Tracker").
+
+ ![Book Tracker](images/bookTrackerScreens.png)
 
 ### Learning Goals/Topics
 - learn to think with ~~portals~~ objects and prototypes
