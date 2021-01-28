@@ -25,7 +25,10 @@ A Book Tracker app written in Javascript+CSS+HTML. Log which books you have read
 - [x] divide the program into smaller segments and write prototypes for every segment you deem necessary
 - [x] write out which id's and classes you'll need
 - [x] create all the necessary HTML + CSS
-- [ ] add JavaScript
+- [x] add JavaScript
 
 ### Unexpected Problems and Learning Experiences:
-- tbd
+- currently having trouble saying when the page is going to get reloaded.
+- it's a lot harder to organize JS compared to C due to everything being passed by value, will have to learn how you organize JS without relying on global/localStorage
+- Today I learned: just because JavaScript doesn't ask you for types during declarations, doesn't mean it doesn't work similarly to C in terms of types
+- definitely need more practice with the debugger

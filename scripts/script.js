@@ -72,13 +72,6 @@ function Book(title, author) {
   this.status = false;
 }
 
-// adding a function to the prototype; as to not spam the constructor
-Book.prototype.changeReadStatus = function () {
-  console.log("prototype change status got called");
-  this.status === false ? (this.status = true) : (this.status = false);
-  return this.status;
-};
-
 function addBookToObj(ev) {
   let curBook = {};
   // stopping form from submitting or it'll try to reload page
