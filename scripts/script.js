@@ -259,7 +259,26 @@ function changeReadingStatus(index) {
   if (index >= 0) {
     bookTrackerList[index].status = !bookTrackerList[index].status;
 
+    // finding the button that got clicked
+    const readingStatusBtn = document.getElementsByName("book reading status");
+    readingStatusBtn.forEach(btn => {
+      const cardWrapper = btn.parentElement;
+
+      if (btn.id == index){
+        console.log("the id of this btn is " + btn.id);
+        if (bookTrackerList.status === false) {
+         cardWrapper.classList.add("unread");
+         btn.setAttribute("src", "images/completed_0.svg");
+         btn.classList.add("unread");
+      } else {
+         cardWrapper.classList.add("read");
+         btn.setAttribute("src", "images/completed_1.svg");
+         btn.classList.add("read");
+       }
+      }
+    });
+
     localStorage.setItem( "BookTrackerList", JSON.stringify(bookTrackerList.reverse()));
-    window.location.reload();
+    // window.location.reload();
   }
 }
