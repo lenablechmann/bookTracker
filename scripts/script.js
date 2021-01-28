@@ -265,15 +265,14 @@ function changeReadingStatus(index) {
       const cardWrapper = btn.parentElement;
 
       if (btn.id == index){
-        console.log("the id of this btn is " + btn.id);
-        if (bookTrackerList.status === false) {
-         cardWrapper.classList.add("unread");
+        if (bookTrackerList[index].status === false) {
+         cardWrapper.className ="card unread";
          btn.setAttribute("src", "images/completed_0.svg");
-         btn.classList.add("unread");
-      } else {
-         cardWrapper.classList.add("read");
+         btn.className = "read-status unread";
+      } else if (bookTrackerList[index].status === true){
+         cardWrapper.className = "card read";
          btn.setAttribute("src", "images/completed_1.svg");
-         btn.classList.add("read");
+         btn.className = "read-status read";
        }
       }
     });
