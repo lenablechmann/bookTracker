@@ -117,7 +117,7 @@ body {
   padding: 1.2em 1.7em 1em 1.7em;
 }
 
-#modal-close {
+.modal-close {
   grid-area: modal-close;
   justify-self: end;
   align-self: baseline;

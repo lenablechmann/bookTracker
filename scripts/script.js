@@ -1,16 +1,10 @@
 // adding this check, so that the script tag can stay at the start of HTML
 document.addEventListener("DOMContentLoaded", function () {
-
-  // Loop through the array and append cards to the html
-  // make sure each card has a data attribute that corresponds to the array index
-
-  // display all books currently in local storage (tracer bullet)
-  displayBookCards();
-
   /*------------- MODAL POP UP --------------- */
   const modal = document.querySelector(".modal");
   const bookBtn = document.getElementById("add-book-btn");
-  const closeModal = document.getElementById("modal-close");
+  // selecting an element with multiple classes (AND)
+  const closeModal = document.querySelector(".delete-btn.modal-close");
   const addBookBtn = document.getElementById("submit-book-btn");
   const modalIntro = document.querySelector(".form-intro");
 
@@ -23,10 +17,14 @@ document.addEventListener("DOMContentLoaded", function () {
     modalIntro.textContent = "The book you'd like to add:";
     modalIntro.style.color = "#1374be";
   };
-  closeModal.onclick = function () {
+
+  // closes modal when user clicks on close button
+  closeModal.addEventListener("click", function () {
+    console.log("clicked on close");
     // hide modal
     modal.style.display = "none";
-  };
+  });
+
   // Closes modal when user clicks outside
   window.onclick = function (event) {
     if (event.target == modal) {
@@ -34,16 +32,29 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   };
 
-  /* --------- Adding new book to the object array --------- */
+  // Adding new book to the object array  once user clicks on the button in modal pop up
   addBookBtn.onclick = addBookToObj;
 
+  /*------- MAIN OPERATIONS AND FUNCTIONS ------*/
 
-  // eventlistener onclick reading status,
+  // displaying all the book cards that are currently in the local storage
+  displayBookCards();
+
+
+  // onclick reading status,
   // changes boolean status in array read:true to false and vice versa
+  const readingStatusBtn = document.querySelector(".read-status");
 
-  // onclick delete eventlistener
+  // onclick delete in the card
   // deletes the corresponding object from the array and
-  // calls the displayBookCards function
+  const cardDeletionBtns = document.querySelectorAll(".delete-btn:not(.modal-close)");
+  
+  cardDeletionBtns.forEach( function(delBtn) {
+    delBtn.addEventListener('click', () => {
+      deleteBook(delBtn.id);
+    });
+  });
+
 });
 
 /*--------------Functions--------------------------------------------*/
@@ -79,7 +90,6 @@ function addBookToObj(ev) {
     // using the constructor to create an object
     curBook = new Book(title, author);
     let bookList = addToLocalBookTrackerList(curBook);
-    console.table(bookList);
     // push the new obj into the array of objects you get from the local storage
     // closing the modal after we got everything without reloading page
     modal.style.display = "none";
@@ -89,6 +99,11 @@ function addBookToObj(ev) {
       "*Please enter the book title and author,140 char max.";
     modalIntro.style.color = "#8b0a19";
   }
+  if (document.querySelectorAll(li)) {
+    clearBooksDOM();
+  }
+
+  displayBookCards();
 }
 
 function checkLength(string) {
@@ -122,7 +137,8 @@ function getLocalBookTrackerList() {
 
     localStorage.setItem("BookTrackerList", JSON.stringify(placeholderBook));
     bookTrackerList.push(placeholderBook);
-    return bookTrackerList;
+
+    return bookTrackerList.reverse();
   } else {
     // local storage could have a single object or an array of objects,
     // if it's already an array, we can return it as is, otherwise push the
@@ -133,11 +149,11 @@ function getLocalBookTrackerList() {
 
     if (Array.isArray(bookTrackerListUnknownType)) {
       // it's an array, so we can return it as is
-      return bookTrackerListUnknownType;
+      return bookTrackerListUnknownType.reverse();
     } else {
       // it's an object, needs to be pushed into an array for latter operations
       bookTrackerList.push(bookTrackerListUnknownType);
-      return bookTrackerList;
+      return bookTrackerList.reverse();
     }
   }
 }
@@ -155,7 +171,7 @@ function addToLocalBookTrackerList(bookObject) {
   return updatedBookTrackerList;
 }
 
-function displayBookCards(){
+function displayBookCards() {
   // add array index class/id to cards so that you can change read status + delete books
   let bookIndex = 0;
 
@@ -163,54 +179,67 @@ function displayBookCards(){
   const bookCardsContainer = document.querySelector(".book-cards");
   const bookTrackerList = getLocalBookTrackerList();
 
-  // looping through every object, create a card for each
-  bookTrackerList.forEach(book => {
-    // creating all the necessary elements for the card (as shown in indexCopy.html in /prototypes)
-    const cardWrapper = document.createElement("li");
-    const readStatusBtn = document.createElement("input");
-    const deleteCardBtn = document.createElement("input");
-    const bookTitle = document.createElement("div");
-    const bookAuthor = document.createElement("div");
+  // looping through every object, create a card for each if card doesn't exist yet
+  bookTrackerList.forEach((book) => {
+      // creating all the necessary elements for the card (as shown in indexCopy.html in /prototypes)
+      const cardWrapper = document.createElement("li");
+      const readStatusBtn = document.createElement("input");
+      const deleteCardBtn = document.createElement("input");
+      const bookTitle = document.createElement("div");
+      const bookAuthor = document.createElement("div");
 
-    // add array index class/id to cards so that you can change read status + delete books
-    cardWrapper.id = bookIndex;
+      // add array index class/id to cards so that you can change read status + delete books
+      deleteCardBtn.id = bookIndex;
+      readStatusBtn.id = bookIndex;
 
-    // styling card elements that don't depend on reading status
-    cardWrapper.classList.add("card");
+      // styling card elements that don't depend on reading status
+      cardWrapper.classList.add("card");
 
-    readStatusBtn.setAttribute("type", "image");
-    readStatusBtn.setAttribute("src", "images/completed_0.svg");
-    readStatusBtn.setAttribute("name", "book reading status");
-    readStatusBtn.classList.add("read-status")
+      readStatusBtn.setAttribute("type", "image");
+      readStatusBtn.setAttribute("src", "images/completed_0.svg");
+      readStatusBtn.setAttribute("name", "book reading status");
+      readStatusBtn.classList.add("read-status");
 
-    deleteCardBtn.setAttribute("type", "image");
-    deleteCardBtn.setAttribute("src", "images/delete.svg");
-    deleteCardBtn.setAttribute("name", "delete book card");
-    deleteCardBtn.classList.add("delete-btn");
+      deleteCardBtn.setAttribute("type", "image");
+      deleteCardBtn.setAttribute("src", "images/delete.svg");
+      deleteCardBtn.setAttribute("name", "delete book card");
+      deleteCardBtn.classList.add("delete-btn");
 
-    bookTitle.classList.add("title");
-    bookTitle.textContent = book.title;
+      bookTitle.classList.add("title");
+      bookTitle.textContent = book.title;
 
-    bookAuthor.classList.add("author");
-    bookAuthor.textContent = book.author;
+      bookAuthor.classList.add("author");
+      bookAuthor.textContent = book.author;
 
-    // styling card elements that depend on reading status
-    if (book.status === false){
-      cardWrapper.classList.add("unread");
-      readStatusBtn.classList.add("unread")
-    }
-    else {
-      cardWrapper.classList.add("read");
-      readStatusBtn.classList.add("read")
-    }
+      // styling card elements that depend on reading status
+      if (book.status === false) {
+        cardWrapper.classList.add("unread");
+        readStatusBtn.classList.add("unread");
+      } else {
+        cardWrapper.classList.add("read");
+        readStatusBtn.classList.add("read");
+      }
 
-    // appending all the styled elements onto the parent nodes
-    cardWrapper.appendChild(readStatusBtn);
-    cardWrapper.appendChild(bookTitle);
-    cardWrapper.appendChild(bookAuthor);
-    cardWrapper.appendChild(deleteCardBtn);
-    bookCardsContainer.append(cardWrapper);
+      // appending all the styled elements onto the parent nodes
+      cardWrapper.appendChild(readStatusBtn);
+      cardWrapper.appendChild(bookTitle);
+      cardWrapper.appendChild(bookAuthor);
+      cardWrapper.appendChild(deleteCardBtn);
+      bookCardsContainer.append(cardWrapper);
 
-    bookIndex++;
+      bookIndex++;
   });
+}
+
+function clearBooksDOM() {
+  // removing all cards in the DOM, to start anew
+  const booksContainer = document.querySelector("book-cards");
+  booksContainer
+    .querySelectorAll("*")
+    .forEach((childNode) => childNode.remove());
+}
+
+function deleteBook(index) {
+  const bookTrackerList = getLocalBookTrackerList();
+  console.log("hi" + index);
 }
