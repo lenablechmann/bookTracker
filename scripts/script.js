@@ -99,7 +99,7 @@ function addBookToObj(ev) {
       "*Please enter the book title and author,140 char max.";
     modalIntro.style.color = "#8b0a19";
   }
-  if (document.querySelectorAll(li)) {
+  if (document.querySelectorAll("li")) {
     clearBooksDOM();
   }
 
@@ -172,6 +172,7 @@ function addToLocalBookTrackerList(bookObject) {
 }
 
 function displayBookCards() {
+  console.log("display has been called");
   // add array index class/id to cards so that you can change read status + delete books
   let bookIndex = 0;
 
@@ -233,13 +234,18 @@ function displayBookCards() {
 
 function clearBooksDOM() {
   // removing all cards in the DOM, to start anew
-  const booksContainer = document.querySelector("book-cards");
-  booksContainer
-    .querySelectorAll("*")
-    .forEach((childNode) => childNode.remove());
+  const booksContainer = document.querySelector(".book-cards");
+  booksContainer.querySelectorAll("*").forEach((childNode) => childNode.remove());
 }
 
 function deleteBook(index) {
-  const bookTrackerList = getLocalBookTrackerList();
-  console.log("hi" + index);
+  let bookTrackerList = getLocalBookTrackerList();
+
+  if (index >= 0) {
+    // remove the object from the array
+    bookTrackerList.splice(index, 1);
+    // reverse array, save to local storage
+    localStorage.setItem( "BookTrackerList", JSON.stringify(bookTrackerList.reverse()));
+    displayBookCards();
+  }
 }
