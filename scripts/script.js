@@ -43,7 +43,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // onclick reading status,
   // changes boolean status in array read:true to false and vice versa
-  const readingStatusBtn = document.querySelector(".read-status");
+  const readingStatusBtn = document.getElementsByName("book reading status");
+  readingStatusBtn.forEach( function(statusBtn) {
+    statusBtn.addEventListener('click', () => {
+      changeReadingStatus(statusBtn.id);
+    });
+  });
 
   // onclick delete in the card
   // deletes the corresponding object from the array and
@@ -69,6 +74,7 @@ function Book(title, author) {
 
 // adding a function to the prototype; as to not spam the constructor
 Book.prototype.changeReadStatus = function () {
+  console.log("prototype change status got called");
   this.status === false ? (this.status = true) : (this.status = false);
   return this.status;
 };
@@ -173,7 +179,6 @@ function addToLocalBookTrackerList(bookObject) {
 }
 
 function displayBookCards() {
-  console.log("display has been called");
   // add array index class/id to cards so that you can change read status + delete books
   let bookIndex = 0;
 
@@ -198,7 +203,6 @@ function displayBookCards() {
       cardWrapper.classList.add("card");
 
       readStatusBtn.setAttribute("type", "image");
-      readStatusBtn.setAttribute("src", "images/completed_0.svg");
       readStatusBtn.setAttribute("name", "book reading status");
       readStatusBtn.classList.add("read-status");
 
@@ -216,9 +220,11 @@ function displayBookCards() {
       // styling card elements that depend on reading status
       if (book.status === false) {
         cardWrapper.classList.add("unread");
+        readStatusBtn.setAttribute("src", "images/completed_0.svg");
         readStatusBtn.classList.add("unread");
       } else {
         cardWrapper.classList.add("read");
+        readStatusBtn.setAttribute("src", "images/completed_1.svg");
         readStatusBtn.classList.add("read");
       }
 
@@ -249,6 +255,18 @@ function deleteBook(index) {
     // reverse array, save to local storage
     localStorage.setItem( "BookTrackerList", JSON.stringify(bookTrackerList.reverse()));
     displayBookCards();
+    window.location.reload();
+  }
+}
+
+function changeReadingStatus(index) {
+  // TODO prototype aint getting called
+  let bookTrackerList = getLocalBookTrackerList();
+
+  if (index >= 0) {
+    bookTrackerList[index].status = !bookTrackerList[index].status;
+
+    localStorage.setItem( "BookTrackerList", JSON.stringify(bookTrackerList.reverse()));
     window.location.reload();
   }
 }
